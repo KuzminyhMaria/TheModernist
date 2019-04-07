@@ -114,12 +114,20 @@ header {
         align-items: center;
         padding-top: 40px;
 
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
         article {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            width: 37%;
+            width: 40%;
+            padding-right: 30px;
         }
 
         img {
@@ -163,7 +171,6 @@ header {
             height: 432px;
             width: 432px;
             position: relative;
-            margin-left: 5%;            
         
             p {
             color: @color-light;
@@ -171,6 +178,79 @@ header {
             position: absolute;
             top: 45%;
             left: 35%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    header .slider .content {
+        article {
+            width: 50%;
+        }
+        .picture {
+            float: none;
+            height: 432px / 1.5;
+            width: 432px / 1.5;
+
+            p {
+                top: 40%;
+                left: 30%;
+            }
+        }
+    } 
+}
+
+@media (max-width: 1140px) {
+    header {
+        a {
+            float: none;
+        }
+        nav ul {
+            float: left;
+            margin-top: 20px;
+        }
+    }
+}
+
+@media (max-width: 1050px) {
+    header .slider .content {
+        flex-direction: column;
+        article {
+            width: 70%;
+            margin-bottom: 20px;
+            padding: 0 50px;
+            text-align: center;
+            
+            button {
+                margin: 20px auto;
+            }
+        }
+    } 
+}
+
+@media (max-width: 816px) {
+    header .slider .content {
+        flex-direction: column;
+        article {
+            width: 100%;
+        }
+    } 
+}
+
+@media (max-width: 700px) {
+    header .slider .content {
+        article h2 {
+            font-size: 30px;
+        }
+        .picture {
+            float: none;
+            height: 432px / 2;
+            width: 432px / 2;
+
+            p {
+                top: 35%;
+                left: 25%;
             }
         }
     }
@@ -256,15 +336,17 @@ main {
         }
 
         h3 {
+            color: @color-light;
+            font-size: 32px;
+            text-align: center;
             position: absolute;
             padding: 5px 10px;
             background: @color-footer;
-            color: @color-light;
-            font-size: 32px;
             border-radius: 10px;
-            width: 27%;
+            width: 260px;
             top: 0;
-            left: 36%;
+            left: 50%;
+            margin-left:-135px;
         }
     }
 
@@ -274,14 +356,14 @@ main {
         grid-template-columns: repeat(3, auto);
         grid-gap: 35px;
 
-        figure {
+        .block {
             border: 5px solid @color-light;
             background: @color-footer;
 
             p {
                 color: @color-light;
                 font-size: 18px;
-                padding: 80px 97px;
+                padding: 80px 0 80px 97px;
             }
 
             h4 {
@@ -294,8 +376,50 @@ main {
             }
         }
 
-        figure:hover {
+        .block:hover {
             border: 5px solid @color-block-additional;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    main {
+        .latest-work {
+            grid-template-rows: repeat(3, auto);
+            grid-template-columns: repeat(2, auto);
+
+            .block p {
+                padding: 80px 0 80px 50%;
+                margin-left: -50px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    main {
+        .service {
+            grid-template-rows: repeat(2, auto);
+            grid-template-columns: repeat(2, auto);  
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    main {
+        .latest-work {
+            grid-template-rows: repeat(4, auto);
+            grid-template-columns: repeat(1, auto);
+  
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    main {
+        .service {
+            grid-template-rows: repeat(3, auto);
+            grid-template-columns: repeat(1, auto);
         }
     }
 }
@@ -335,7 +459,7 @@ footer {
             margin-bottom: 10px;
         }
 
-        time {
+        .data {
             font-size: 10px;
             color: #979797;
         }
@@ -358,14 +482,21 @@ footer {
 
             li {
                 list-style-type: none;
-                color: @color-block-additional;
-                font-size: 13px;
-                padding: 10px 0;
+                margin: 5px 0;
                 
+                a {
+                    color: @color-block-additional;
+                    font-size: 13px;
+                    width: 100%;
+                }
             }
 
             li:first-of-type {
-                padding-top: 0;
+                margin-top: 0;
+            }
+
+            li:last-of-type {
+                margin-bottom: 0;
             }
 
             li:before {
@@ -377,6 +508,7 @@ footer {
                 width: 100%;
                 height: 1px;
                 background: #404040;
+                margin: 5px 0 0 0; 
             }
         }
 
@@ -421,7 +553,7 @@ footer {
         }
         
         input[type="submit"] {
-            width: 30%;
+            width: 70px;
             background: @color-block-additional;
             color: #303030;
             font-weight: 600;
@@ -450,6 +582,48 @@ footer {
 
         p:last-of-type {
             float: right;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    footer .first {
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: repeat(2, 1fr);
+
+        section:first-of-type,
+        section:nth-of-type(2) {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    footer .last {
+        padding: 25px 120px 25px 120px;
+        p {
+            text-align: center;
+
+        }
+
+        p:first-of-type {
+            float: none;
+            margin-bottom: 10px;
+        }
+
+        p:last-of-type {
+            float: none;
+        }
+    }
+}
+
+@media (max-width: 670px) {
+    footer .first {
+        grid-template-rows: repeat(4, auto);
+        grid-template-columns: repeat(1, 1fr);
+
+        section:not(:last-of-type) {
+            margin-bottom: 30px;
         }
     }
 }
